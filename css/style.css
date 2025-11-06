@@ -20,33 +20,17 @@ main { flex: 1; }
 /* 🌙 Dark Theme Styles */
 body.dark {
   --bg: #0d1117;
-  --text: #f0f6fc;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --accent-2: #f78166;
-  --panel-bg: #161b22;
-  --border: #30363d;
-  background-color: var(--bg);
-  color: var(--text);
+  --card-bg: #0f1721;
+  --muted: #9aa3b2;
+  --text: #e6eef9;
+  --accent-1: #3b82f6;
+  --accent-2: #2b6fd6;
+  --accent-grad: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  --panel-bg: #0b1220;
+  --border: #243146;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --card-shadow: 0 8px 28px rgba(0,0,0,0.6);
 }
-
-body.dark .calculator-card {
-  background: var(--panel-bg);
-  border-color: var(--border);
-}
-
-body.dark select,
-body.dark button {
-  background: var(--panel-bg);
-  color: var(--text);
-  border-color: var(--border);
-}
-
-body.dark .result-card {
-  background: var(--panel-bg);
-  border-color: var(--border);
-}
-
 
 /*
 =========================
@@ -604,4 +588,5 @@ footer {
 body.dark .takeaways-box {
   background: var(--panel-bg);
 }
+
 
