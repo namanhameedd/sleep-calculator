@@ -1,0 +1,589 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+html, body { height: 100%; }
+main { flex: 1; }
+
+:root {
+  --bg: #f5f8ff;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --text: #0b1220;
+  --accent-1: #1f6feb;
+  --accent-2: #1272d9;
+  --accent-grad: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  --panel-bg: #e9f0ff;
+  --border: #dbe4f3;
+  --shadow: 0 8px 25px rgba(20,40,80,0.06);
+  --card-shadow: 0 6px 18px rgba(8,20,40,0.06);
+}
+
+body.dark {
+  --bg: #0d1117;
+  --card-bg: #0f1721;
+  --muted: #9aa3b2;
+  --text: #e6eef9;
+  --accent-1: #3b82f6;
+  --accent-2: #2b6fd6;
+  --accent-grad: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  --panel-bg: #0b1220;
+  --border: #243146;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --card-shadow: 0 8px 28px rgba(0,0,0,0.6);
+}
+
+/*
+=========================
+   HEADER
+=========================
+*/
+.page-header {
+  width: 100%;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 14px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 320px;
+  gap: 12px;
+}
+
+/* --- LOGO (Left) --- */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-logo img {
+  height: 38px;
+  width: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* --- TITLE + SUBTITLE (Center) --- */
+.header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 180px;
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.header-center span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+/* --- THEME TOGGLE (Right) --- */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  color: var(--text);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.06);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background .25s ease, color .25s ease;
+}
+
+/*
+=========================
+   CALCULATOR CARD
+=========================
+*/
+.calculator-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.calculator-card {
+  background: var(--panel-bg);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 980px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.4s ease, padding 0.4s ease;
+  margin: 0 16px;
+}
+
+.calculator-card.collapsed { height: 450px; } /* default height without results */
+.calculator-card.expanded { height: auto; }
+
+.calculator-card h2 {
+  margin: 0 0 18px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+/*
+=========================
+   GRID
+=========================
+*/
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.age-range h3,
+.sleep-schedule h3 { margin:0 0 10px; font-size:1rem; color:var(--text); }
+
+/*
+=========================
+   AGE BUTTONS
+=========================
+*/
+.age-buttons {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+
+.age-buttons button {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform .12s ease, background .12s ease, color .12s ease;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+}
+
+.age-buttons button span {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 4px;
+  color: var(--muted);
+  transition: color .2s ease;
+}
+
+.age-buttons button:hover { transform: translateY(-3px); }
+
+.age-buttons button.active {
+  background: var(--accent-grad);
+  color: #fff;
+  border-color: transparent;
+}
+
+.age-warning {
+  text-align: center;
+  color: #ff5c5c;
+  font-size: 14px;
+  margin-top: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+.age-range.highlight {
+  outline: 2px solid #ff5c5c;
+  border-radius: 8px;
+  transition: outline 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.age-buttons button.active span {
+  color: #fff; /* ensure Months/Years text visible */
+}
+
+/* Schedule */
+.sleep-schedule {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+.sleep-schedule h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+/* Radio buttons */
+.schedule-options {
+    display: flex;
+    flex-direction:
+    column; gap: 10px;
+    margin-bottom: 14px;
+}
+
+.radio-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all .12s ease;
+  color: var(--text);
+}
+body:not(.dark) .radio-btn { background: rgba(255,255,255,0.85); }
+.radio-btn.active {
+    background: var(--accent-grad);
+    color: black;
+    box-shadow: 0 6px 18px rgba(18,70,160,0.12);
+}
+
+.radio-btn .label-text {
+    font-weight: 600;
+}
+
+.radio-btn .icon {
+    opacity: 0.95;
+}
+
+/* Time selectors */
+.time-selectors {
+    display: flex;
+    gap: 10px;
+    margin:z12px 0 8px;
+}
+select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Calculate button */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent-grad);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 8px 22px rgba(18,70,160,0.12);
+  transition: transform .12s ease, opacity .2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+
+/* RESULTS area */
+.results {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  animation: fadeInUp .36s ease forwards;
+}
+.hidden { display: none !important; }
+
+.result-row {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.result-card {
+  width: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(6, 18, 50, 0.12);
+  background: linear-gradient(180deg, rgba(13,28,58,0.98), rgba(21,40,72,0.98));
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.result-top {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.result-top .col { display: flex; flex-direction: column; gap: 6px; }
+.result-top .small { font-size: 13px; opacity: 0.9; }
+.result-time { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: 0.5px; }
+.dash { flex: 0 0 28px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.22); }
+
+.result-bottom {
+  background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02));
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: #cfe6ff;
+}
+
+/* Go back */
+.go-back-wrap { display: flex; justify-content: Center; margin-top: 10px; }
+.go-back {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.go-back:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  width: 100%;
+  margin-top: 40px;
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+}
+
+/* === FOOTER LINKS === */
+.site-footer {
+  text-align: center;
+  padding: 18px 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--card-bg);
+  margin-top: 40px;
+}
+
+.site-footer a {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.site-footer a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive font sizing */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.8rem;
+    padding: 14px 8px;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .calculator-grid { grid-template-columns: 1fr; }
+  .age-buttons { grid-template-columns: repeat(4,1fr); }
+  .result-card { width: 100%; max-width: 520px; }
+}
+
+/*
+=========================
+   RESPONSIVE MOBILE
+=========================
+*/
+@media (max-width: 768px) {
+  .calculator-grid { 
+    grid-template-columns: 1fr; 
+    gap:16px; 
+    min-height: 0px; /* Minimum height for mobile */
+  }
+  .age-buttons { grid-template-columns: repeat(4,1fr); }
+  .calculator-card { 
+    padding:16px; 
+    min-height: 650px; /* Minimum card height on mobile */
+    transition: all .3s ease;
+  }
+  .result-card { width:100%; max-width:100%; }
+}
+
+/* ==============================
+   Tablet layout adjustments
+   ============================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .calculator-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .age-range,
+  .sleep-schedule {
+    width: 100%;
+  }
+
+  .sleep-schedule {
+    margin-top: 1rem;
+  }
+
+  .calculator-card {
+    max-width: 700px;
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .time-selectors {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .time-selectors select {
+    width: 30%;
+    min-width: 80px;
+  }
+
+  .schedule-options {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* Responsive footer font sizing */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.8rem;
+    padding: 14px 8px;
+  }
+}
+
+/* Recommended Sleep Chart link styling */
+.open-chart-link {
+  text-align: Right;
+  margin-top: 10px;
+}
+
+.open-chart-link a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.open-chart-link a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Key Takeaways box */
+.takeaways-box {
+  background: var(--accent-light);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.takeaways-box h3 {
+  color: var(--text-strong);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.takeaways-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.takeaways-box li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.takeaways-box li::before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.takeaways-box a {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+
+.takeaways-box a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode adjustment */
+body.dark .takeaways-box {
+  background: var(--panel-bg);
+}

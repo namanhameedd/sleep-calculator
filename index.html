@@ -1,0 +1,125 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sleep Calculator — Personalized Sleep Tool</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+  <header class="page-header">
+    <div class="header-inner">
+      <div class="header-left">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Sleep Calculator Logo" class="site-logo" />
+      </a>
+      </div>
+      <div class="header-center">
+        <h1>
+          Sleep Calculator
+          <span>Personalized Sleep Tool</span>
+        </h1>
+      </div>
+      <div class="header-right">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark or light theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================= -->
+  <main class="calculator-container" id="calculatorRoot">
+    <div class="calculator-card collapsed">
+      <h2>🌙 Sleep Calculator</h2>
+      <div class="calculator-grid">
+        <!-- Age Range -->
+        <section class="age-range" aria-labelledby="ageHeading">
+          <h3 id="ageHeading">Age Range</h3>
+          <div class="age-buttons" role="list">
+            <button role="listitem">0-3<br><span>Months</span></button>
+            <button role="listitem">4-11<br><span>Months</span></button>
+            <button role="listitem">1-2<br><span>Years</span></button>
+            <button role="listitem">3-5<br><span>Years</span></button>
+            <button role="listitem">6-13<br><span>Years</span></button>
+            <button role="listitem">14-17<br><span>Years</span></button>
+            <button role="listitem">18-25<br><span>Years</span></button>
+            <button role="listitem">26-35<br><span>Years</span></button>
+            <button role="listitem">36-45<br><span>Years</span></button>
+            <button role="listitem">46-55<br><span>Years</span></button>
+            <button role="listitem">56-64<br><span>Years</span></button>
+            <button role="listitem">65+<br><span>Years</span></button>
+          </div>
+        </section>
+
+        <!-- Sleep Schedule -->
+        <section class="sleep-schedule" aria-labelledby="scheduleHeading">
+          <h3 id="scheduleHeading">Sleep Schedule</h3>
+
+          <div class="schedule-options" role="radiogroup">
+            <label class="radio-btn active">
+              <input type="radio" name="mode" value="wake" checked>
+              <span class="label-text">I want to wake up at...</span>
+              <span class="icon" aria-hidden="true">☀️</span>
+            </label>
+            <label class="radio-btn">
+              <input type="radio" name="mode" value="sleep">
+              <span class="label-text">I want to go to bed at...</span>
+              <span class="icon" aria-hidden="true">🌙</span>
+            </label>
+          </div>
+
+          <div class="time-selectors">
+            <select id="hour" aria-label="Hour"></select>
+            <select id="minute" aria-label="Minute"></select>
+            <select id="ampm" aria-label="AM or PM">
+              <option>AM</option>
+              <option>PM</option>
+            </select>
+          </div>
+          </br>
+          <button id="calculate" class="btn-primary">Calculate</button>          
+        </section>
+      </div>
+
+      <!-- CHART LINK (appears after results) -->
+      </br>
+      <div><p id="openChart" class="open-chart-link">
+        <a href="recommended.html">📊 View Recommended Sleep Chart</a>
+      </p></div>
+      <!-- RECOMMENDED INFO -->
+      <div id="recommended" class="recommended hidden"></div>
+
+      <!-- RESULTS -->
+      <div id="results" class="results hidden" aria-live="polite"></div>
+
+      <!-- SPECIAL NOTE -->
+      <div id="specialNote" class="special-note hidden">        
+      </div>
+
+    <!-- GO BACK -->
+    <div class="go-back-wrap hidden" id="goBackWrap">
+      <button id="goBack" class="go-back">← Go Back</button>      
+    </div>
+
+  </main>
+
+  <!--
+  =========================
+       FOOTER
+  =========================
+  -->
+  <footer class="site-footer">
+    <p>© 2025 Sleep Calculator | Built by Develoop Studios.
+    <p>
+      <a href="#" id="termsLink">Terms of Use</a> · 
+      <a href="#" id="privacyLink">Privacy Policy</a>
+    </p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
