@@ -513,7 +513,7 @@ footer {
 /* ==============================
    Tablet layout adjustments
    ============================== */
-@media (min-width: 1080px) and (max-width: 960px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .calculator-grid {
     display: flex;
     flex-direction: column;
@@ -630,6 +630,7 @@ footer {
 body.dark .takeaways-box {
   background: var(--panel-bg);
 }
+
 
 
 
