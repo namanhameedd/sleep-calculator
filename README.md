@@ -15,7 +15,8 @@ Static site: a sleep-cycle based bedtime/wake-time calculator (client-side only)
    - `ca-pub-XXXXXXXXXXXX` and `data-ad-slot` with your AdSense IDs.
    - Add real images into `/images/`.
 2. Push repo to GitHub.
-3. Deploy to Netlify / Vercel / GitHub Pages.
+3. Deploy to GitHub Pages.
 
 ## License
 MIT — customize author & year.
+
