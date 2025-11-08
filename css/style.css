@@ -513,7 +513,7 @@ footer {
 /* ==============================
    Tablet layout adjustments
    ============================== */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768) and (max-width: 1024px) {
   .calculator-grid {
     display: flex;
     flex-direction: column;
@@ -632,18 +632,19 @@ body.dark .takeaways-box {
 }
 
 .mobile-ad {
-  margin: 20px auto;
   text-align: center;
+  margin: 16px auto;
   width: 100%;
-  max-width: 350px;
+  max-width: 360px;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-
-
-
-
-
+/* Hide ads on desktop */
+@media (min-width: 769px) {
+  .mobile-ad {
+    display: none !important;
+  }
+}
