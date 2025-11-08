@@ -631,6 +631,17 @@ body.dark .takeaways-box {
   background: var(--panel-bg);
 }
 
+.mobile-ad {
+  margin: 20px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.hidden {
+  display: none;
+}
+
 
 
 
