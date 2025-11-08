@@ -495,7 +495,7 @@ footer {
    RESPONSIVE MOBILE
 =========================
 */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .calculator-grid { 
     grid-template-columns: 1fr; 
     gap:16px; 
@@ -630,3 +630,4 @@ footer {
 body.dark .takeaways-box {
   background: var(--panel-bg);
 }
+
